@@ -5,9 +5,12 @@ const tourRouter = require('./routes/tourRoutes');
 const userRouter = require('./routes/userRoutes');
 
 const app = express();
+const DEVELOPMENT = 'development';
 
 // 1) Middlewares
-app.use(morgan('dev'));
+if (process.env.NODE_ENV === DEVELOPMENT) {
+  app.use(morgan('dev'));
+}
 
 app.use(express.json());
 
